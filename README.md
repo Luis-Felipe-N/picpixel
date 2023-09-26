@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PicPixel - APP
+Aplicação desenvolvida em Next.js com o propósito de aprofundar os conhecimentos em processamento de imagens **pixel to pixel** E **edge/line detection**, aplicando de forma prática os conceitos aprendidos na aula de processamento de imagens.
 
-## Getting Started
+![alt text](public/cover.png)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Documentação da Aplicação :weight_lifting:
+Este repositório contém a implementação do PicPixel uma aplicação construída em:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next.js - latest
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js - 18
+- NPM - 9.8.1
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Instalação e configuração :computer:
+- Faça o clone deste repositório: `git clone`
+- Certifique-se de ter o Node.js 18 e NPM 9.8.1 instalados em sua máquina.
+- Copie o arquivo **.env.example** para **.env** na raiz do projeto e defina as variáveis de ambiente necessárias para o seu ambiente.
+- Execute `npm install` na pasta raiz do projeto para criar instalar as dependências.
+- Por fim, execute `npm run dev` para subir a aplicação em modo de desenvolvimento.
 
-## Learn More
+## Funcionalidades 👩‍💻
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] **FILTRO** blur/
+Remove detalhes finos e suaviza a imagem. Isso é útil para reduzir o ruído ou criar uma aparência mais suave.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ ] **FILTRO** sharpen/
+Aumenta o contraste entre os pixels adjacentes, realçando detalhes e tornando a imagem mais nítida.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [ ] **FILTRO** edge-enhancement/: Realça as bordas na imagem, tornando-as mais visíveis. Isso é frequentemente usado em detecção de bordas.
 
-## Deploy on Vercel
+- [ ] **FILTRO** contrast/: Ajusta o brilho e o contraste da imagem para torná-la mais clara ou mais escura.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] **FILTRO** sepia/: Converte a imagem para tons sépia, criando uma aparência envelhecida.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [ ] **FILTRO** invert/: Inverte as cores da imagem, tornando os tons claros escuros e vice-versa.
+
+- [ ] **FILTRO** grayscale/: Converte a imagem para tons de cinza, removendo a informação de cor.
+
+- [ ] **FILTRO** motion-blur/: Cria um efeito de desfoque que simula o movimento.
+
+- [ ] **FILTRO** distortion/: Aplica distorções geométricas ou de lente à imagem para efeitos especiais.
+
+- [ ] **FILTRO** vignette/: Escurece as bordas da imagem, criando um efeito de sombreamento ao redor do centro.
+
+- [ ] **FILTRO** texture/: Aplica texturas a uma imagem para criar um efeito de superfície diferente.
+
+- [ ] **FILTRO** mosaic/(Mosaic): Divide a imagem em blocos ou pixels grandes, criando uma aparência de mosaico.
+
+- [ ] **FILTRO** edge-detection/: Realça as bordas na imagem, destacando as mudanças abruptas de intensidade de cor.
+
+- [ ] **FILTRO** histogram/: Melhora o contraste da imagem ajustando o histograma.
+
+- [ ] **OPERAÇÃO** resizing/: Altera o tamanho da imagem, tornando-a maior ou menor.
+
+- [ ] **OPERAÇÃO** rotation/: Gira a imagem em ângulos diferentes.
+
+## RFs (Requisitos funcionais)
+
+<!-- - [ ] Deve ser possível fazer upload de várias imagens; -->
+- [ ] Deve ser possível subir uma imagem para fazer a edição;
+- [ ] Deve ser possível aplicar um ou mais filtros em uma imagem;
+- [ ] Deve ser possível aplicar um ou mais filtros em uma imagem;
+- [ ] Deve ser possível baixar uma imagem editada;
+
+## RNs (Regras de negócio)
+
+## RNFs (Requisitos não-funcionais)
+- [ ] Os imagens precisam estar persistidos no local-storage;# picpixel
