@@ -66,4 +66,4 @@ Aumenta o contraste entre os pixels adjacentes, realçando detalhes e tornando a
 ## RNs (Regras de negócio)
 
 ## RNFs (Requisitos não-funcionais)
-- [ ] Os imagens precisam estar persistidos no local-storage;# picpixel
+- [ ] Os imagens precisam estar persistidos no local-storage;
