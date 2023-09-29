@@ -3,8 +3,8 @@ import { UploadImage } from './components/upload-image'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <UploadImage /> 
+    <main className="min-h-screen items-center justify-center flex">
+      <UploadImage />
     </main>
   )
 }

@@ -1,25 +1,55 @@
 'use client'
 
-import { useForm } from "react-hook-form";
-import { Button } from "./ui/button";
+import { Editor } from './editor'
+import { Button } from './ui/button'
+
+import { ChangeEvent, useState } from 'react'
 
 export function UploadImage() {
-  const { register } = useForm()
+  const [imageURL, setImageURL] = useState('')
+  const [isDragging, setIsDragging] = useState(false)
+  const handleUploadImage = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const fileSrc = URL.createObjectURL(event.target.files[0])
+      setImageURL(fileSrc)
+    }
+  }
+
+  const handleDragEnter = () => {
+    setIsDragging(true)
+  }
+
+  const handleDragOut = () => {
+    setIsDragging(false)
+  }
+
+  if (imageURL) {
+    return <Editor image={imageURL} />
+  }
 
   return (
     <div className="z-10 max-w-5xl justify-between text-sm lg:flex flex-col text-zinc-500">
-
-        <div className='border-2 border-zinc-500 border-dashed text-zinc-100 mx-auto p-24 rounded-3xl '>
-          <h1 className='text-3xl'>
-            Arraste uma imagem até aqui
-          </h1>
+      <label>
+        <div
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragOut}
+          className={`border-2 cursor-pointer ${
+            isDragging
+              ? 'border-green-500 bg-green-500 bg-opacity-5'
+              : 'border-zinc-500 border-dashed'
+          } transition text-zinc-100 mx-auto p-24 rounded-3xl`}
+        >
+          <h1 className="text-2xl">Arraste uma imagem até aqui</h1>
         </div>
+        <input className="hidden" type="file" onChange={handleUploadImage} />
+      </label>
 
-        <input type="file" name="" id="" />
-
-        <div className='mt-8 flex gap-2 items-center'>
-          <p>ou faça upload do seus arquivos</p> <Button className="bg-zinc-700  text-sm rounded-full">Buscar</Button>
-        </div>
+      <div className="mt-4 flex gap-2 justify-center items-center">
+        <p>ou faça upload do seus arquivos</p>
+        <Button className="bg-zinc-700 hover:bg-zinc-800  text-sm rounded-full">
+          Buscar
+        </Button>
       </div>
+    </div>
   )
 }
