@@ -6,12 +6,13 @@ import { Button } from './ui/button'
 import { ChangeEvent, useState } from 'react'
 
 export function UploadImage() {
-  const [imageURL, setImageURL] = useState('')
+  const [imageURL, setImageURL] = useState<File | null>(null)
   const [isDragging, setIsDragging] = useState(false)
+
   const handleUploadImage = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const fileSrc = URL.createObjectURL(event.target.files[0])
-      setImageURL(fileSrc)
+      const file = event.target.files[0]
+      setImageURL(file)
     }
   }
 
