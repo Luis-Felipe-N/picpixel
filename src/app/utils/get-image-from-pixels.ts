@@ -6,9 +6,6 @@ export function getImageFromPixels(pixels: ImageData) {
 
   if (ctx) {
     ctx.putImageData(pixels, 0, 0)
+    return canvas.toDataURL()
   }
-
-  const image = new Image()
-  image.src = canvas.toDataURL()
-  return image
 }

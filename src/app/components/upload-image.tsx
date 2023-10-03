@@ -1,5 +1,6 @@
 'use client'
 
+import { EditionContextProvider } from '../contexts/EditionContext'
 import { Editor } from './editor'
 import { Button } from './ui/button'
 
@@ -25,7 +26,11 @@ export function UploadImage() {
   }
 
   if (imageURL) {
-    return <Editor image={imageURL} />
+    return (
+      <EditionContextProvider image={imageURL}>
+        <Editor image={imageURL} />
+      </EditionContextProvider>
+    )
   }
 
   return (

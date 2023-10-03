@@ -1,17 +1,22 @@
+import { Console } from 'console'
 import { Reducer } from 'react'
 
 interface EditionOptions {
-  imageInitial: ImageData
-  imageEdited: ImageData
-  sepia: boolean
-  blur: boolean
+  imageInitial: ImageData | null
+  imageEdited: ImageData | null
+  editions: {
+    filters: {
+      type: string
+      action: any
+      active: boolean
+    }[]
+  }
 }
 
 export enum ActionTypes {
   ADD_INITIAL_IMAGE = 'ADD_INITIAL_IMAGE',
   UPDATE_EDIT_IMAGE = 'UPDATE_EDIT_IMAGE',
-  SET_FILTER_SEPIA = 'SET_FILTER_SEPIA',
-  SET_FILTER_BLUR = 'SET_FILTER_BLUR',
+  SET_FILTER = 'SET_FILTER',
 }
 
 export type ReducerAction = {
@@ -19,7 +24,7 @@ export type ReducerAction = {
   payload?: any
 }
 
-export function editionReducer(state: EditionOptions, action: any) {
+export function editionReducer(state: EditionOptions, action: ReducerAction) {
   switch (action.type) {
     case ActionTypes.ADD_INITIAL_IMAGE:
       return {
@@ -31,16 +36,25 @@ export function editionReducer(state: EditionOptions, action: any) {
         ...state,
         imageEdited: action.payload,
       }
-    case ActionTypes.SET_FILTER_SEPIA:
+    case ActionTypes.SET_FILTER: {
+      const filterUpdated = state.editions.filters.map((filter) => {
+        if (action.payload === filter.type) {
+          return {
+            type: filter.type,
+            action: filter.action,
+            active: true,
+          }
+        }
+        return filter
+      })
+
       return {
         ...state,
-        sepia: true,
+        editions: {
+          filters: [...filterUpdated],
+        },
       }
-    case ActionTypes.SET_FILTER_BLUR:
-      return {
-        ...state,
-        blur: true,
-      }
+    }
 
     default:
       return state
